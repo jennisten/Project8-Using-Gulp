@@ -13,7 +13,7 @@ var gulp = require('gulp'),
 	useref = require('gulp-useref'),
 	runSequence = require('run-sequence');
 
-//concatenate, minify and create sourcemaps for all javascript files and copy files to dist/scripts folder
+//concatenate, minify and create sourcemaps for all javascript files and place files to dist/scripts folder
 gulp.task('scripts', function() {
 	return gulp.src(['js/global.js', 'js/circle/autogrow.js', 'js/circle/circle.js'])
 		.pipe(maps.init())
@@ -23,7 +23,7 @@ gulp.task('scripts', function() {
 		.pipe(gulp.dest('dist/scripts'))
 });
 
-//concatenate, minify and create sourcemaps for all css files and copy to dist/styles folder
+//concatenate, minify and create sourcemaps for all css files and place to dist/styles folder
 gulp.task('styles', function() {
 	return gulp.src('sass/*.*')
 		.pipe(maps.init())
@@ -34,7 +34,7 @@ gulp.task('styles', function() {
 		.pipe(gulp.dest('dist/styles'))
 });
 
-//optimize the size of images files and copyt to dist/content folder
+//optimize the size of image files and place to dist/content folder
 gulp.task('images', function () {
 	return gulp.src('images/*.*')
 		.pipe(resizer({
@@ -49,12 +49,18 @@ gulp.task('clean', function() {
 	return del(['dist'])
 });
 
-//copy index.html in dist folder
+//parse the build blocks in the HTML, replace them, place new index.html in dist folder
 gulp.task('html', function() {
 	return gulp.src('index.html')
+		.pipe(useref())
 		.pipe(gulp.dest('dist/'))
 });
 
+//build task to handle cleaning of dist folder and building styles, scripts, images and html
+gulp.task('build', function(done) {
+   runSequence('clean', ['scripts', 'styles', 'images'], 'html',
+   done);
+});
 
 //start local webserver and serve the project
 gulp.task('serve', function() {
@@ -65,13 +71,7 @@ gulp.task('serve', function() {
 		}))
 });
 
-gulp.task('build', function(done) {
-   runSequence('clean', ['html', 'scripts', 'styles', 'images'],
-   done);
-});
-
-
-//default command  "gulp" to run build command and serve the project on a local web server
+//default task to run build command and serve the project on a local web server
 gulp.task('default', ['build'], function() {
 	gulp.start('serve')
 });
