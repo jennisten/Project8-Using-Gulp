@@ -5,7 +5,7 @@ var gulp = require('gulp'),
 	concat = require('gulp-concat'),
 	minify = require('gulp-uglify'),
 	sass = require('gulp-sass'),
-	minifycss = require('gulp-uglifycss'),
+	csso = require('gulp-csso'),
 	resizer = require('gulp-images-resizer'),
 	maps = require('gulp-sourcemaps'),
 	del = require('del'),
@@ -29,7 +29,7 @@ gulp.task('styles', function() {
 		.pipe(maps.init())
 		.pipe(sass())
 		.pipe(concat('all.min.css'))
-		.pipe(minifycss())
+		.pipe(csso())
 		.pipe(maps.write('./'))
 		.pipe(gulp.dest('dist/styles'))
 });
@@ -46,14 +46,14 @@ gulp.task('images', function () {
 
 //clean all files and folders in the dist folder
 gulp.task('clean', function() {
-	del(['dist'])
+	return del(['dist'])
 });
 
 //copy index.html in dist folder
 gulp.task('html', function() {
 	return gulp.src('index.html')
 		.pipe(gulp.dest('dist/'))
-})
+});
 
 
 //start local webserver and serve the project
@@ -63,10 +63,11 @@ gulp.task('serve', function() {
 			port : 3000,
 			open : true
 		}))
-})
+});
 
-gulp.task('build', ['clean'], function() {
-   gulp.start(['scripts', 'styles', 'images', 'html'])
+gulp.task('build', function(done) {
+   runSequence('clean', ['html', 'scripts', 'styles', 'images'],
+   done);
 });
 
 
