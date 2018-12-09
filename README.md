@@ -1,7 +1,7 @@
 # Using Gulp to Build a Front End website
 This is a student project as a part of Treehouse Techdegree Fullstack JavaScript program.
 
-##Project description
+## Project description
 In this project you’ll be provided a website with HTML, SCSS, JPEGs, PNGs and JavaScript files. You’ll be required to set up a Gulp build process to prepare the website for deployment.
 
 The build process must fulfill the following criteria:
