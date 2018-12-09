@@ -1,7 +1,17 @@
 # Using Gulp to Build a Front End website
 This is a student project as a part of Treehouse Techdegree Fullstack JavaScript program.
 
-## Project instructions/requirements
+##Project description
+In this project you’ll be provided a website with HTML, SCSS, JPEGs, PNGs and JavaScript files. You’ll be required to set up a Gulp build process to prepare the website for deployment.
+
+The build process must fulfill the following criteria:
+* Concatenate and minify the JavaScript files
+* Compile SCSS into CSS in a concatenated and minified file
+* Generate JavaScript and CSS source maps
+* Compress any JPEG or PNG files
+All output for the build process should be in a dist folder for distribution or deployment.
+
+## Project requirements
 * As a developer, I should be able to run the npm install command to install all of the dependencies for the build process.
 * As a developer, I should be able to run the gulp scripts command at the command line to concatenate, minify, and copy all of the project’s JavaScript files into an all.min.js file that is then copied to the dist/scripts folder.
 * As a developer, I should be able to run the gulp styles command at the command line to compile the project’s SCSS files into CSS, then concatenate and minify into an all.min.css file that is then copied to the dist/styles folder.
