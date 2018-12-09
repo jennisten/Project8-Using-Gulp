@@ -9,6 +9,7 @@ The build process must fulfill the following criteria:
 * Compile SCSS into CSS in a concatenated and minified file
 * Generate JavaScript and CSS source maps
 * Compress any JPEG or PNG files
+
 All output for the build process should be in a dist folder for distribution or deployment.
 
 ## Project requirements
