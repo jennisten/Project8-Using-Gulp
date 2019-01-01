@@ -4,7 +4,7 @@ This is a student project as a part of Treehouse Techdegree Fullstack JavaScript
 ## Project description
 In this project you’ll be provided a website with HTML, SCSS, JPEGs, PNGs and JavaScript files. You’ll be required to set up a Gulp build process to prepare the website for deployment.
 
-The build process must fulfill the following criteria:
+The build process must fulfil the following criteria:
 * Concatenate and minify the JavaScript files
 * Compile SCSS into CSS in a concatenated and minified file
 * Generate JavaScript and CSS source maps
