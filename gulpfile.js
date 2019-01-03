@@ -46,7 +46,7 @@ gulp.task('images', function () {
 
 //clean all files and folders in the dist folder
 gulp.task('clean', function() {
-	return del(['dist'])
+	return del(['dist/*'])
 });
 
 //parse the build blocks in the HTML, replace them, place new index.html in dist folder
@@ -58,7 +58,7 @@ gulp.task('html', function() {
 
 //build task to handle cleaning of dist folder and building styles, scripts, images and html
 gulp.task('build', function(done) {
-   runSequence('clean', ['scripts', 'styles', 'images'], 'html',
+   runSequence('clean', 'html', ['scripts', 'styles', 'images'], 
    done);
 });
 
