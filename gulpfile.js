@@ -9,6 +9,7 @@ var gulp = require('gulp'),
 	resizer = require('gulp-images-resizer'),
 	maps = require('gulp-sourcemaps'),
 	del = require('del'),
+	watch = require('gulp-watch'),
 	webserver = require('gulp-webserver'),
 	useref = require('gulp-useref'),
 	runSequence = require('run-sequence');
@@ -34,6 +35,11 @@ gulp.task('styles', function() {
 		.pipe(gulp.dest('dist/styles'))
 });
 
+//watch for changes to any .scss file and run gulp styles when a change is detected
+gulp.task('watchCss', function() {
+  gulp.watch('sass/*.scss', ['styles']);
+})
+
 //optimize the size of image files and place to dist/content folder
 gulp.task('images', function () {
 	return gulp.src('images/*.*')
@@ -58,11 +64,11 @@ gulp.task('html', function() {
 
 //build task to handle cleaning of dist folder and building styles, scripts, images and html
 gulp.task('build', function(done) {
-   runSequence('clean', 'html', ['scripts', 'styles', 'images'], 
+   runSequence('clean', 'html', ['scripts', 'styles', 'images'],
    done);
 });
 
-//start local webserver and serve the project
+//start local webserver and serve the project from dist folder
 gulp.task('serve', function() {
 	return gulp.src('dist/')
 		.pipe(webserver({
@@ -71,7 +77,7 @@ gulp.task('serve', function() {
 		}))
 });
 
-//default task to run build command and serve the project on a local web server
+//default task to run build command, serve the project on a local web server and watch for any css changes
 gulp.task('default', ['build'], function() {
-	gulp.start('serve')
+	gulp.start('serve', ['watchCss']);
 });
