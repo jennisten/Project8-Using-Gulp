@@ -20,7 +20,7 @@ All output for the build process should be in a dist folder for distribution or 
 * run gulp command which is the default command and will build up the project, serve it in on a local webserver and watch for changes in any css file.
 * the individual tasks can also be run separately:
 	* gulp clean - to delete all content from dist folder
-	* gulp html -
+	* gulp html - to parse the build blocks in the HTML, replace them, copy and place the new index.html in dist folder
 	* gulp scripts - to concatenate, minify, generate sourcemaps and copy all of the JavaScript files into an all.min.js file that is then copied to the dist/scripts folder.
 	* gulp styles - to compile all of the SCSS files into CSS, then concatenate, minify, generate sourcemaps and copy into an all.min.css file that is then copied to the dist/styles folder.
 	* gulp images - to optimize the size of the project’s JPEG and PNG files, and then copy those optimized images to the dist/content folder.
