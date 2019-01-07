@@ -15,7 +15,7 @@ The build process must fulfil the following criteria:
 
 All output for the build process should be in a dist folder for distribution or deployment.
 
-##Getting started
+## Getting started
 * run npm install command to install all of the dependencies for the build process.
 * run gulp command which is the default command and will build up the project, serve it in on a local webserver and watch for changes in any css file.
 * the individual tasks can also be run separately:
