@@ -1,9 +1,6 @@
 # Using Gulp to Build a Front End website
 This is a student project as a part of Treehouse Techdegree Fullstack JavaScript program.
 
-
-
-
 ## Project description
 In this project you’ll be provided a website with HTML, SCSS, JPEGs, PNGs and JavaScript files. You’ll be required to set up a Gulp build process to prepare the website for deployment.
 
@@ -15,17 +12,19 @@ The build process must fulfil the following criteria:
 
 All output for the build process should be in a dist folder for distribution or deployment.
 
+
 ## Getting started
-* run npm install command to install all of the dependencies for the build process.
-* run gulp command which is the default command and will build up the project, serve it in on a local webserver and watch for changes in any css file.
+* run __npm install__ command to install all of the dependencies for the build process.
+* run default __gulp__ command to build up the project, serve it in on a local webserver and watch for changes in any css file.
 * the individual tasks can also be run separately:
-	* gulp clean - to delete all content from dist folder
-	* gulp html - to parse the build blocks in the HTML, replace them, copy and place the new index.html in dist folder
-	* gulp scripts - to concatenate, minify, generate sourcemaps and copy all of the JavaScript files into an all.min.js file that is then copied to the dist/scripts folder.
-	* gulp styles - to compile all of the SCSS files into CSS, then concatenate, minify, generate sourcemaps and copy into an all.min.css file that is then copied to the dist/styles folder.
-	* gulp images - to optimize the size of the project’s JPEG and PNG files, and then copy those optimized images to the dist/content folder.
-	* gulp build – to clean all content and build up the site.
-	* gulp serve – to serve the project on a local webserver
+	* __gulp clean__ to delete all content from dist folder
+	* __gulp html__ to parse the build blocks in the HTML, replace them, copy and place the new index.html in dist folder
+	* __gulp scripts__ to concatenate, minify, generate sourcemaps and copy all of the JavaScript files into an all.min.js file that is then copied to the dist/scripts folder.
+	* __gulp styles__ to compile all of the SCSS files into CSS, then concatenate, minify, generate sourcemaps and copy into an all.min.css file that is then copied to the dist/styles folder.
+	* __gulp images__ to optimize the size of the project’s JPEG and PNG files, and then copy those optimized images to the dist/content folder.
+	* __gulp build__ to clean all content and build up the site.
+	* __gulp serve__ to serve the project on a local webserver
+
 
 
 ### Project requirements
